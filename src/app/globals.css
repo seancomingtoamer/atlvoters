@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-atl-red: #DC2626;
+  --color-atl-black: #111111;
+  --color-atl-white: #FFFFFF;
+  --color-atl-gray: #6B7280;
+  --color-atl-lightgray: #E5E7EB;
+  --color-atl-darkgray: #374151;
+  --font-sans: "Inter", Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #111111;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-atl-red {
+  color: #DC2626;
+}
+
+.bg-atl-red {
+  background-color: #DC2626;
+}
+
+.border-atl-red {
+  border-color: #DC2626;
+}
+
+input, button, textarea, select {
+  border-radius: 0 !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.newspaper-rule {
+  border-top: 1px solid #111111;
+}
+
+.newspaper-rule-thick {
+  border-top: 3px solid #111111;
+}
+
+.newspaper-rule-red {
+  border-top: 3px solid #DC2626;
+}

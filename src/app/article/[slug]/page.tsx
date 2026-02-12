@@ -1,0 +1,455 @@
+import Link from "next/link";
+
+// ============================================================
+// MOCK DATA
+// ============================================================
+
+interface Comment {
+  id: number;
+  author: string;
+  perspective: string;
+  perspectiveColor: string;
+  text: string;
+  likes: number;
+  date: string;
+}
+
+interface Article {
+  slug: string;
+  category: string;
+  headline: string;
+  author: string;
+  date: string;
+  readTime: string;
+  body: string[];
+  commentCount: number;
+  comments: Comment[];
+}
+
+interface MoreStory {
+  slug: string;
+  category: string;
+  headline: string;
+  author: string;
+}
+
+const ARTICLES: Record<string, Article> = {
+  "trump-executive-order-both-sides": {
+    slug: "trump-executive-order-both-sides",
+    category: "Federal",
+    headline:
+      "Trump Just Signed an Order That Has Both Sides Losing Their Minds",
+    author: "Marcus Reed",
+    date: "February 12, 2026",
+    readTime: "6 min read",
+    body: [
+      "WASHINGTON -- President Trump signed Executive Order 14287 on Tuesday, directing the Department of Justice to withhold federal law enforcement grants from any municipality that maintains sanctuary city policies. Atlanta, which has long operated under an informal don't-ask policy regarding immigration status, stands to lose an estimated $340 million in federal funding.",
+      "The order immediately drew fire from both sides of the aisle, though for entirely different reasons.",
+      'Mayor Andre Dickens held a press conference within hours, calling the order "a direct attack on Atlanta\'s sovereignty and our values as a welcoming city." He pledged that the city would not change its policies. "We will not become an arm of federal immigration enforcement," Dickens said. "Period."',
+      "Governor Brian Kemp, however, signaled that the state would cooperate fully. In a statement, Kemp said Georgia would \"work hand-in-hand with the federal government to ensure our communities are safe and our laws are followed.\" He did not directly address the funding implications for Atlanta.",
+      "The executive order has created a bizarre political landscape where progressive Atlanta Democrats and MAGA-aligned Republicans are both furious -- just at different people. Local conservative groups say the mayor is risking essential public safety funding for political points. Progressive organizations say the order is designed to terrorize immigrant communities.",
+      "Council member Liliana Bakhtiari called the order \"cruel and calculated\" and announced she would introduce a resolution formally declaring Atlanta a sanctuary city -- something the city has never officially done. \"If they're going to punish us anyway, we might as well make it official,\" Bakhtiari said.",
+      "Meanwhile, the practical implications are already being felt. Atlanta Police Department sources tell ATL Voters that officers have received no new directives but are \"confused about what this means for day-to-day operations.\" Federal grant-funded programs, including a youth violence prevention initiative in Zone 3, could see funding frozen as early as next month.",
+      "The legal battle is expected to begin within weeks. Atlanta City Attorney Nina Hickson is reportedly already drafting a challenge. Similar lawsuits are being prepared in Chicago, Los Angeles, and New York.",
+      'For now, the people caught in the middle -- the residents who rely on federally funded services and the immigrant communities who fear the knock on the door -- are left waiting. As one Southwest Atlanta community organizer told us: "Politicians on both sides are playing chess. We\'re the pawns."',
+    ],
+    commentCount: 127,
+    comments: [
+      {
+        id: 1,
+        author: "PolicyWatchATL",
+        perspective: "Moderate",
+        perspectiveColor: "bg-gray-200 text-gray-700",
+        text: "The real story here is the $340M number. That includes police training grants, domestic violence programs, and after-school funding. This isn't abstract politics -- it's real services for real people.",
+        likes: 84,
+        date: "2 hours ago",
+      },
+      {
+        id: 2,
+        author: "BuckheadVoter92",
+        perspective: "Conservative",
+        perspectiveColor: "bg-blue-100 text-blue-800",
+        text: "The mayor needs to stop grandstanding and start governing. You can disagree with the policy and still comply with federal law. That $340M isn't his money to gamble with.",
+        likes: 67,
+        date: "3 hours ago",
+      },
+      {
+        id: 3,
+        author: "WestEndResident",
+        perspective: "Progressive",
+        perspectiveColor: "bg-green-100 text-green-800",
+        text: "I live in Zone 3. The youth violence program they're threatening to defund is the only thing keeping some of these kids off the streets. Washington doesn't care about us either way.",
+        likes: 112,
+        date: "4 hours ago",
+      },
+      {
+        id: 4,
+        author: "GAPoliticsNerd",
+        perspective: "Moderate",
+        perspectiveColor: "bg-gray-200 text-gray-700",
+        text: "Kemp vs Dickens is going to be THE political fight of 2026 in Georgia. This order just poured gasoline on it. Watch the polling numbers after this.",
+        likes: 45,
+        date: "5 hours ago",
+      },
+      {
+        id: 5,
+        author: "DecaturDem",
+        perspective: "Progressive",
+        perspectiveColor: "bg-green-100 text-green-800",
+        text: "Bakhtiari is right. If we're going to lose the funding anyway, make the stand official. Half measures help nobody.",
+        likes: 58,
+        date: "6 hours ago",
+      },
+    ],
+  },
+  "ice-spotted-gwinnett-county": {
+    slug: "ice-spotted-gwinnett-county",
+    category: "Federal",
+    headline: "ICE Spotted in Gwinnett County -- Here's What Went Down",
+    author: "Denise Carter",
+    date: "February 12, 2026",
+    readTime: "4 min read",
+    body: [
+      "NORCROSS -- Multiple witnesses reported seeing federal Immigration and Customs Enforcement agents at the Plaza Fiesta shopping center in Norcross early Tuesday morning. The sighting has sent shockwaves through Gwinnett County's large immigrant community.",
+      "According to witnesses, at least four individuals wearing jackets marked \"POLICE ICE\" were seen in the parking lot around 7:30 a.m. Two appeared to be questioning individuals near a day labor pickup area adjacent to the shopping center.",
+      "Gwinnett County Police confirmed they were not involved in and were not notified about any federal immigration operation. \"We have no information about ICE activity in our jurisdiction today,\" a department spokesperson said.",
+      "ICE's Atlanta field office did not respond to requests for comment by publication time.",
+      "Community organizations quickly mobilized. The Latin American Association set up a rapid-response hotline and deployed \"know your rights\" teams to the area. By midday, the parking lot that is normally packed was nearly empty.",
+      "\"People are terrified,\" said Rosa Hernandez, a community organizer with the Georgia Latino Alliance for Human Rights. \"A mother called me crying because she's afraid to pick up her children from school. This is what enforcement by fear looks like.\"",
+      "Gwinnett County Commission Chair Nicole Love Hendrickson released a statement calling for transparency. \"Our residents deserve to know what federal agencies are doing in our communities. The lack of coordination and communication is unacceptable,\" Hendrickson said.",
+      "This is the third reported ICE sighting in the metro Atlanta area in the past two weeks, following the executive order on sanctuary city funding. Immigration attorneys say the increased visible presence appears to be a deliberate strategy.",
+      "\"They want to be seen,\" said immigration attorney David Kim. \"The legal authority hasn't changed much. What's changed is the theater. They want communities to know they're there.\"",
+    ],
+    commentCount: 47,
+    comments: [
+      {
+        id: 1,
+        author: "GwinnettMom",
+        perspective: "Progressive",
+        perspectiveColor: "bg-green-100 text-green-800",
+        text: "My kids go to school in Norcross. Half the class was absent today because parents were afraid to leave their homes. These are CHILDREN being affected.",
+        likes: 94,
+        date: "1 hour ago",
+      },
+      {
+        id: 2,
+        author: "LawAndOrder404",
+        perspective: "Conservative",
+        perspectiveColor: "bg-blue-100 text-blue-800",
+        text: "Federal agents enforcing federal law. This is literally how it's supposed to work. If you're here legally you have nothing to worry about.",
+        likes: 41,
+        date: "2 hours ago",
+      },
+      {
+        id: 3,
+        author: "NorcrossLocal",
+        perspective: "Moderate",
+        perspectiveColor: "bg-gray-200 text-gray-700",
+        text: "I was there this morning. The agents left after about 90 minutes. Didn't see anyone detained. But the damage to the community trust is already done.",
+        likes: 67,
+        date: "3 hours ago",
+      },
+    ],
+  },
+  "mayor-dickens-fires-back-kemp": {
+    slug: "mayor-dickens-fires-back-kemp",
+    category: "City Hall",
+    headline: "Mayor Dickens Fires Back at Governor Kemp Over Transit Funding",
+    author: "Jason Liu",
+    date: "February 11, 2026",
+    readTime: "5 min read",
+    body: [
+      "ATLANTA -- The simmering feud between Mayor Andre Dickens and Governor Brian Kemp erupted into open warfare Tuesday over $2.1 billion in MARTA expansion funds that the state is threatening to withhold.",
+      "At a packed press conference at Five Points Station, Dickens accused the governor of \"holding Atlanta's transportation future hostage for political gain.\" The mayor pointed to a recent state audit that questioned MARTA's spending practices as the catalyst for the funding freeze.",
+      "\"Let me be clear,\" Dickens said, his voice rising. \"This audit was ordered by the governor's allies in the legislature. The findings are disputed. And using it as a pretext to block transit expansion that would serve 2 million metro residents is not governance. It's sabotage.\"",
+      "The $2.1 billion in question comes from a combination of state matching funds and federal transit grants that require state approval to release. Without it, MARTA's planned Clifton Corridor light rail line and the Campbellton Road BRT extension would be indefinitely delayed.",
+      "Governor Kemp responded through a spokesperson, who said the state has a fiduciary duty to ensure taxpayer money is spent responsibly. \"The audit raised serious questions about MARTA's financial management. Until those questions are answered, it would be irresponsible to release additional funding,\" the statement read.",
+      "MARTA CEO Collie Greenwood pushed back on the audit's findings in a detailed rebuttal released last week, calling several of its conclusions \"misleading\" and based on \"outdated data.\" The agency has proposed an independent third-party review as a compromise.",
+      "Transportation advocates are furious. \"Atlanta already has one of the worst transit systems for a city its size in America,\" said Rebecca Kim of the Atlanta Transit Riders Alliance. \"Every month of delay means more traffic, more pollution, and more working families who can't get to their jobs.\"",
+      "The political subtext is hard to miss. Kemp, who faces a contested Republican primary for his U.S. Senate run, has been positioning himself as tough on Atlanta spending. Dickens, widely expected to seek reelection, needs the transit wins to shore up his base.",
+      "The state legislature will take up the funding question when it reconvenes next week. Several Atlanta-area legislators have introduced a bill that would bypass the governor's hold, but it faces long odds in the Republican-controlled chamber.",
+    ],
+    commentCount: 82,
+    comments: [
+      {
+        id: 1,
+        author: "TransitNerd404",
+        perspective: "Progressive",
+        perspectiveColor: "bg-green-100 text-green-800",
+        text: "The Clifton Corridor has been in planning for 15 YEARS. If this gets delayed again I'm going to lose it. Atlanta will never be a real city without real transit.",
+        likes: 73,
+        date: "4 hours ago",
+      },
+      {
+        id: 2,
+        author: "CobbCommuter",
+        perspective: "Moderate",
+        perspectiveColor: "bg-gray-200 text-gray-700",
+        text: "I don't even live in Atlanta and I want MARTA expansion. The traffic on 285 is killing the entire metro economy.",
+        likes: 88,
+        date: "5 hours ago",
+      },
+    ],
+  },
+};
+
+const POLL = {
+  question: "Who do you trust more on transit funding?",
+  options: [
+    "Mayor Dickens -- cities should control their own transit",
+    "Governor Kemp -- accountability before more spending",
+    "Neither -- they're both playing politics",
+    "MARTA itself should have more autonomy",
+  ],
+};
+
+const MORE_STORIES: MoreStory[] = [
+  {
+    slug: "georgia-legislature-new-bill",
+    category: "Gold Dome",
+    headline: "Georgia Legislature Pushes New Bill That Nobody Asked For",
+    author: "Tanya Brooks",
+  },
+  {
+    slug: "buckhead-cityhood-back-again",
+    category: "City Hall",
+    headline: "Buckhead Cityhood Is Back -- And This Time They Have the Votes",
+    author: "Denise Carter",
+  },
+  {
+    slug: "atlanta-water-bills-skyrocket",
+    category: "City Hall",
+    headline:
+      "Atlanta Water Bills Are Skyrocketing and Nobody at City Hall Will Explain Why",
+    author: "Tanya Brooks",
+  },
+  {
+    slug: "fulton-county-da-investigation",
+    category: "Investigations",
+    headline:
+      "Fulton County DA's Office Under Fire for Mishandled Evidence in Gang Case",
+    author: "Marcus Reed",
+  },
+];
+
+// ============================================================
+// FALLBACK ARTICLE
+// ============================================================
+
+const FALLBACK_ARTICLE: Article = {
+  slug: "fallback",
+  category: "News",
+  headline: "Article Not Found",
+  author: "ATL Voters Staff",
+  date: "February 12, 2026",
+  readTime: "1 min read",
+  body: [
+    "The article you are looking for could not be found. This may be because it has been moved, removed, or the URL is incorrect.",
+    "Please return to the homepage to browse our latest coverage of Atlanta politics and accountability journalism.",
+  ],
+  commentCount: 0,
+  comments: [],
+};
+
+// ============================================================
+// PAGE COMPONENT
+// ============================================================
+
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const article = ARTICLES[slug] || FALLBACK_ARTICLE;
+
+  const shareUrl = `https://atlvoters.com/article/${slug}`;
+  const shareText = encodeURIComponent(article.headline + " | ATL Voters");
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(shareUrl)}`;
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+
+  return (
+    <div className="max-w-6xl mx-auto px-4 pb-24">
+      {/* ARTICLE HEADER */}
+      <article className="max-w-3xl mx-auto">
+        <div className="py-8 border-b border-[#111111]">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#DC2626]">
+            {article.category}
+          </span>
+          <h1 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] mt-2 mb-4">
+            {article.headline}
+          </h1>
+          <div className="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider font-medium">
+            <span>By {article.author}</span>
+            <span className="w-1 h-1 bg-gray-400"></span>
+            <span>{article.date}</span>
+            <span className="w-1 h-1 bg-gray-400"></span>
+            <span>{article.readTime}</span>
+          </div>
+        </div>
+
+        {/* ARTICLE BODY */}
+        <div className="py-8 border-b border-gray-200">
+          {article.body.map((paragraph, idx) => (
+            <div key={idx}>
+              <p className="text-base md:text-lg leading-relaxed text-gray-800 mb-5">
+                {paragraph}
+              </p>
+
+              {/* MID-ARTICLE POLL after 4th paragraph */}
+              {idx === 3 && (
+                <div className="border-t-[3px] border-b-[3px] border-[#111111] py-6 my-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1">
+                      Poll
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                      Quick Vote
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#111111] mb-4">
+                    {POLL.question}
+                  </h3>
+                  <form className="space-y-2">
+                    {POLL.options.map((option, optIdx) => (
+                      <label
+                        key={optIdx}
+                        className="flex items-start gap-3 p-3 border border-gray-200 hover:border-[#111111] cursor-pointer transition-colors group"
+                      >
+                        <input
+                          type="radio"
+                          name="article-poll"
+                          value={optIdx}
+                          className="mt-0.5 accent-[#DC2626]"
+                        />
+                        <span className="text-sm font-medium text-gray-800 group-hover:text-[#111111]">
+                          {option}
+                        </span>
+                      </label>
+                    ))}
+                    <button
+                      type="button"
+                      className="bg-[#DC2626] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors mt-2"
+                    >
+                      Vote
+                    </button>
+                  </form>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* SOCIAL SHARE */}
+        <div className="py-6 border-b border-gray-200">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
+            Share This Article
+          </h4>
+          <div className="flex items-center gap-3">
+            <a
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#111111] text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-[#DC2626] transition-colors"
+            >
+              Share on X
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#111111] text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-[#DC2626] transition-colors"
+            >
+              Share on Facebook
+            </a>
+          </div>
+        </div>
+
+        {/* COMMENTS */}
+        <div className="py-8 border-b border-gray-200">
+          <div className="flex items-center gap-3 mb-6">
+            <h3 className="text-lg font-black uppercase tracking-tight text-[#111111]">
+              Comments
+            </h3>
+            <span className="text-sm font-bold text-gray-400">
+              ({article.commentCount})
+            </span>
+            <div className="flex-1 border-t border-[#111111]"></div>
+          </div>
+
+          {article.comments.length === 0 && (
+            <p className="text-sm text-gray-500">
+              No comments yet. Check back later.
+            </p>
+          )}
+
+          <div className="space-y-0">
+            {article.comments.map((comment, idx) => (
+              <div
+                key={comment.id}
+                className={`py-5 ${
+                  idx < article.comments.length - 1
+                    ? "border-b border-gray-100"
+                    : ""
+                }`}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-sm font-bold text-[#111111]">
+                    {comment.author}
+                  </span>
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 ${comment.perspectiveColor}`}
+                  >
+                    {comment.perspective}
+                  </span>
+                  <span className="text-[10px] text-gray-400">
+                    {comment.date}
+                  </span>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-2">
+                  {comment.text}
+                </p>
+                <div className="flex items-center gap-1 text-xs text-gray-400 font-medium">
+                  <span>&#9650;</span>
+                  <span>{comment.likes}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* MORE STORIES */}
+        <div className="py-8">
+          <div className="flex items-center gap-3 mb-6">
+            <h3 className="text-lg font-black uppercase tracking-tight text-[#111111]">
+              More Stories
+            </h3>
+            <div className="flex-1 border-t border-[#111111]"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {MORE_STORIES.map((story, idx) => (
+              <article
+                key={story.slug}
+                className={`p-4 ${
+                  idx % 2 === 0 ? "md:border-r border-gray-200" : ""
+                } ${idx < MORE_STORIES.length - 2 ? "border-b border-gray-200" : ""}`}
+              >
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#DC2626]">
+                  {story.category}
+                </span>
+                <Link href={`/article/${story.slug}`}>
+                  <h4 className="text-base font-bold text-[#111111] leading-tight mt-1 hover:text-[#DC2626] transition-colors">
+                    {story.headline}
+                  </h4>
+                </Link>
+                <span className="text-[10px] text-gray-400 uppercase tracking-wider font-medium mt-1 block">
+                  {story.author}
+                </span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </article>
+    </div>
+  );
+}
