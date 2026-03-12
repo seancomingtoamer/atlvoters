@@ -20,6 +20,16 @@ const FEATURED_ARTICLE = {
 
 const TIER2_ARTICLES = [
   {
+    slug: "bibi-calling-shots-iran-war-day-11",
+    category: "Federal",
+    headline: "Is Bibi Calling the Shots? The Iran War Is 11 Days In and Nobody's Sure Who's Driving.",
+    teaser:
+      "The US and Israel launched strikes on Iran on Feb 28. Eleven days later, 1,200 dead in Iran, 7 US soldiers killed, oil prices through the roof, and Trump says it'll end 'soon.' Netanyahu says no time limit. Here's where things stand.",
+    author: "Jason Liu",
+    date: "March 11, 2026",
+    commentCount: 289,
+  },
+  {
     slug: "trump-executive-order-both-sides",
     category: "Federal",
     headline: "Trump Just Signed an Order That Has Both Sides Losing Their Minds",
@@ -28,16 +38,6 @@ const TIER2_ARTICLES = [
     author: "Marcus Reed",
     date: "February 12, 2026",
     commentCount: 127,
-  },
-  {
-    slug: "ice-spotted-gwinnett-county",
-    category: "Federal",
-    headline: "ICE Spotted in Gwinnett County -- Here's What Went Down",
-    teaser:
-      "Witnesses report federal agents at a Norcross shopping center. Local police say they weren't notified. Community leaders are demanding answers.",
-    author: "Denise Carter",
-    date: "February 12, 2026",
-    commentCount: 47,
   },
   {
     slug: "mayor-dickens-fires-back-kemp",
