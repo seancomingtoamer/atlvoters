@@ -359,11 +359,11 @@ export default async function ArticlePage({
             {article.headline}
           </h1>
           {slug === "tiffany-henyard-fulton-county-nino-brown" && (
-            <div className="relative w-full aspect-[21/9] my-5 overflow-hidden border-2 border-[#111111]">
+            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] my-5 overflow-hidden border-2 border-[#111111]">
               <img
                 src="/nino-henyard.png"
                 alt="Tiffany Henyard and Nino Brown from New Jack City -- side by side comparison"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-3 py-1.5">
                 <span className="text-[10px] text-gray-300 uppercase tracking-wider">

@@ -66,7 +66,7 @@ export default function RootLayout({
         <div className="w-full bg-[#111111] text-white py-1.5 px-4">
           <div className="max-w-6xl mx-auto flex items-center justify-between text-xs tracking-wide">
             <span className="uppercase font-medium">
-              Wednesday, February 12, 2026
+              Wednesday, March 11, 2026
             </span>
             <span className="uppercase font-medium tracking-widest">
               Atlanta, Georgia

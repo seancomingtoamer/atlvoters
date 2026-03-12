@@ -125,23 +125,23 @@ export default function Home() {
           </span>
         </div>
         <Link href={`/article/${FEATURED_ARTICLE.slug}`}>
-          <div className="relative w-full aspect-[21/9] mb-5 overflow-hidden border-2 border-[#111111]">
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] mb-5 overflow-hidden border-2 border-[#111111]">
             <img
               src="/nino-henyard.png"
               alt="Tiffany Henyard and Nino Brown from New Jack City -- side by side comparison"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-center"
             />
           </div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] hover:text-[#DC2626] transition-colors mb-3">
+          <h2 className="text-2xl md:text-5xl font-black leading-tight text-[#111111] hover:text-[#DC2626] transition-colors mb-3">
             {FEATURED_ARTICLE.headline}
           </h2>
         </Link>
         {FEATURED_ARTICLE.subheadline && (
-          <p className="text-xl md:text-2xl font-bold text-[#DC2626] italic mb-4">
+          <p className="text-lg md:text-2xl font-bold text-[#DC2626] italic mb-4">
             {FEATURED_ARTICLE.subheadline}
           </p>
         )}
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mb-4">
+        <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-3xl mb-4">
           {FEATURED_ARTICLE.teaser}
         </p>
         <div className="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider font-medium">
