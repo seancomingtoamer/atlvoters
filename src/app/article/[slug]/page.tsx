@@ -358,6 +358,20 @@ export default async function ArticlePage({
           <h1 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] mt-2 mb-3">
             {article.headline}
           </h1>
+          {slug === "tiffany-henyard-fulton-county-nino-brown" && (
+            <div className="relative w-full aspect-[21/9] my-5 overflow-hidden border-2 border-[#111111]">
+              <img
+                src="/nino-henyard.png"
+                alt="Tiffany Henyard and Nino Brown from New Jack City -- side by side comparison"
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-3 py-1.5">
+                <span className="text-[10px] text-gray-300 uppercase tracking-wider">
+                  Photo: Dolton Village Board Meeting / New Jack City (1991)
+                </span>
+              </div>
+            </div>
+          )}
           {article.subheadline && (
             <p className="text-xl md:text-2xl font-bold text-[#DC2626] italic mb-4">
               {article.subheadline}

@@ -125,6 +125,13 @@ export default function Home() {
           </span>
         </div>
         <Link href={`/article/${FEATURED_ARTICLE.slug}`}>
+          <div className="relative w-full aspect-[21/9] mb-5 overflow-hidden border-2 border-[#111111]">
+            <img
+              src="/nino-henyard.png"
+              alt="Tiffany Henyard and Nino Brown from New Jack City -- side by side comparison"
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] hover:text-[#DC2626] transition-colors mb-3">
             {FEATURED_ARTICLE.headline}
           </h2>
