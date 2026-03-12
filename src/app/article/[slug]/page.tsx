@@ -18,6 +18,7 @@ interface Article {
   slug: string;
   category: string;
   headline: string;
+  subheadline?: string;
   author: string;
   date: string;
   readTime: string;
@@ -34,6 +35,85 @@ interface MoreStory {
 }
 
 const ARTICLES: Record<string, Article> = {
+  "tiffany-henyard-fulton-county-nino-brown": {
+    slug: "tiffany-henyard-fulton-county-nino-brown",
+    category: "Investigations",
+    headline:
+      "America's Worst Mayor Fled to Atlanta. Now She Wants Your Tax Dollars.",
+    subheadline:
+      "Meet Mayor Nino Brown -- She Ran Dolton Like New Jack City. Fulton County Is Next.",
+    author: "Marcus Reed",
+    date: "March 11, 2026",
+    readTime: "7 min read",
+    body: [
+      "ATLANTA -- Fulton County, we need to talk. Because while you were minding your business, paying your taxes, and trying to figure out what's happening with MARTA, a woman named Tiffany A. Henyard quietly moved to town, opened a clothing boutique in College Park, and filed paperwork to run for your District 5 County Commissioner seat. As a Republican. While under active FBI investigation. On the March 5th deadline. Like a student turning in a term paper at 11:59 PM.",
+      "If you don't know who Tiffany Henyard is, congratulations -- your blood pressure is probably normal. For the rest of us who've been watching this saga unfold like a Netflix series that keeps getting renewed despite terrible reviews, Henyard is the former mayor of Dolton, Illinois -- a small suburb south of Chicago that she turned into her personal playground. She was so controversial, so brazen, so unapologetically chaotic that the internet gave her the title nobody campaigns for: America's Worst Mayor.",
+      "And now she's our problem.",
+      "Let's talk about the Nino Brown incident, because if you haven't seen it, you need to sit down for this. In 2023, at an official Dolton Village Board meeting -- a government proceeding, mind you -- Mayor Henyard walked in dressed as Wesley Snipes' drug kingpin character from New Jack City. Full leather outfit. She brought a stuffed dog to recreate the intimidation scene. She had a personal DJ. And when it was time to remind residents to pay their taxes, she had that DJ spin Rihanna's \"Bitch Better Have My Money.\" At a board meeting. Where the minutes are recorded. Where someone's grandmother was probably sitting in the front row.",
+      "But the Nino Brown cosplay was just the opening act. Henyard also hired a convicted sex offender named Lavell Redmond -- a man who served 25 years in prison for the gang rape and beating of two teenage girls -- and gave him a badge as a code enforcement officer. A job that involves going into people's homes. FOX 32 Chicago obtained video of Redmond at a back-to-school event with children, badge on his waist, standing next to the mayor. When confronted about it, Henyard said her friend \"deserved a second chance.\" The residents of Dolton had a different word for it.",
+      "Then there were the Las Vegas trips. Taxpayer-funded credit card charges at restaurants near the Strip, including Cafe Hollywood and Hot and Juicy Crawfish. When a reporter asked Henyard point blank if she flew first class to Vegas on taxpayer money, her response was legendary: \"No comment... Any other questions?\" When pressed about how taxpayer dollars were being spent, she said, \"I just answered it.\" Ma'am, you did not.",
+      "She spent an estimated $779,000 on village credit cards in a single year. A million dollars on a personal police security detail. Her hair and makeup team was on the public payroll. When former Chicago Mayor Lori Lightfoot -- yes, that Lori Lightfoot -- was brought in to audit the books, she found the village had gone from a $5.6 million surplus to a $3.6 million deficit. That's a $9.2 million swing. In a town with a population of about 23,000.",
+      "The people of Dolton eventually got their say. In February 2025, Henyard lost her reelection bid by a margin that can only be described as political extinction. Trustee Jason House beat her 88% to 12%. On election night, Henyard was a no-show at her own party. She called in by phone and said, \"The people have spoken and God must have a different plan for me.\" Earlier that same day, she told reporters, \"I am confident that I will have a landslide this evening.\" She got one. Just not the kind she meant.",
+      "So what was God's plan? Apparently, Fulton County, Georgia.",
+      "Henyard surfaced in the Atlanta area in late 2025, opening a clothing store called New Wave in College Park. In a podcast interview, she described her move as chasing \"opportunity\" and pivoted to talking about her fashion sense. \"Everybody was into my fashion during my four years,\" she said. \"My hair was always laid.\" Girl, the town was broke but the edges were snatched. Priorities.",
+      "Then, on March 5th, 2026, the Atlanta Journal-Constitution reported that a Tiffany A. Henyard, listed as a Republican business owner, had qualified to run for the Fulton County Board of Commissioners District 5 seat. She is the only Republican in the race. The district is overwhelmingly Democratic. Four Democrats are also running for the seat being vacated by Marvin Arrington Jr.",
+      "Yes, you read that right. The woman who ran as a Democrat in Illinois, campaigned as a Democrat, pulled Democrat ballots her entire career, is now running as a Republican. In a recent interview, she said, \"People keep voting for Democrats, but the Democrats aren't doing anything for the Black community. I lived it. My very own is the ones that was attacking me.\" She also said Republicans \"are doing a good job\" right now. The Fulton County GOP has not publicly endorsed her. They're probably still processing.",
+      "Emory University political scientist Andra Gillespie told FOX 5 Atlanta that Henyard faces \"significant challenges\" as both a newcomer and a Republican in a deep blue district. She called it what most people are thinking: this is a carpetbagger situation, and the voters of District 5 are unlikely to be charmed by someone who just registered to vote in Georgia on February 27th, 2026 -- six days before qualifying.",
+      "Oh, and one more thing. While Henyard is out here trying to restart her political career in a new state, the FBI is still investigating her finances from Thornton Township. Her former police chief, Lewis Lacey, has already pled guilty to bankruptcy fraud and is cooperating with the feds. Her village administrator, Keith Freeman, is also facing federal charges. A judge recently ordered Henyard to pay $10,000 in unpaid rent in Illinois. She didn't show up for that hearing either.",
+      "Fulton County, consider this your public service announcement. The woman who turned a small Illinois town into a meme, who played Rihanna at government meetings, who hired a convicted rapist and gave him a badge, who left a $3.6 million hole in the budget, who lost 88-12 and called it God's plan -- she's HERE. She's filed. And she wants to manage YOUR tax dollars.",
+      "As Nate the Lawyer put it on his YouTube channel when he broke this story down: is this the same Tiffany A. Henyard? All signs point to yes. Same name, same county, same energy. And if you're a voter in District 5, you now have homework to do before May 19th.",
+      "Nobody's safe. Everybody's accountable. Welcome to Atlanta, Tiffany. We do things different down here.",
+      "Editor's Note: This article was inspired by reporting from Nate the Lawyer on YouTube, with additional sourcing from the Atlanta Journal-Constitution, FOX 5 Atlanta, CBS News Atlanta, Chicago Sun-Times, and WGN Investigates.",
+    ],
+    commentCount: 342,
+    comments: [
+      {
+        id: 1,
+        author: "CollegeParkResident",
+        perspective: "Progressive",
+        perspectiveColor: "bg-green-100 text-green-800",
+        text: "I live in District 5. I just want y'all to know -- we are NOT doing this. She's been here five minutes and wants to run things? Ma'am, you can't even run a village of 23,000 without the FBI showing up.",
+        likes: 247,
+        date: "1 hour ago",
+      },
+      {
+        id: 2,
+        author: "SouthFultonVoter",
+        perspective: "Moderate",
+        perspectiveColor: "bg-gray-200 text-gray-700",
+        text: "The Nino Brown board meeting video is one of the greatest pieces of political footage in American history and I will not be taking questions on that. But no, she should absolutely not be anywhere near a budget.",
+        likes: 189,
+        date: "2 hours ago",
+      },
+      {
+        id: 3,
+        author: "BuckheadRepublican",
+        perspective: "Conservative",
+        perspectiveColor: "bg-blue-100 text-blue-800",
+        text: "Speaking as an actual Republican -- we don't claim her. She switched parties because Democrats kicked her out. That's not a political conversion, that's witness protection.",
+        likes: 312,
+        date: "3 hours ago",
+      },
+      {
+        id: 4,
+        author: "ATLPoliticsJunkie",
+        perspective: "Progressive",
+        perspectiveColor: "bg-green-100 text-green-800",
+        text: "She registered to vote in Georgia SIX DAYS before the filing deadline. The audacity is actually impressive. Wrong, but impressive.",
+        likes: 156,
+        date: "4 hours ago",
+      },
+      {
+        id: 5,
+        author: "EastPointWildcard",
+        perspective: "Wildcard",
+        perspectiveColor: "bg-red-100 text-red-800",
+        text: "If she shows up to a Fulton County commission meeting in a leather trench coat with a DJ and a stuffed dog I am calling in sick to work to watch that livestream. Some things are bigger than a paycheck.",
+        likes: 401,
+        date: "5 hours ago",
+      },
+    ],
+  },
   "trump-executive-order-both-sides": {
     slug: "trump-executive-order-both-sides",
     category: "Federal",
@@ -194,16 +274,22 @@ const ARTICLES: Record<string, Article> = {
 };
 
 const POLL = {
-  question: "Who do you trust more on transit funding?",
+  question: "Should Tiffany Henyard be allowed to run for office in Fulton County?",
   options: [
-    "Mayor Dickens -- cities should control their own transit",
-    "Governor Kemp -- accountability before more spending",
-    "Neither -- they're both playing politics",
-    "MARTA itself should have more autonomy",
+    "Absolutely not -- we saw what she did in Illinois",
+    "Yes -- everyone deserves a second chance in a new city",
+    "Only if she settles things with the FBI first",
+    "I'm just here for the Nino Brown cosplay at board meetings",
   ],
 };
 
 const MORE_STORIES: MoreStory[] = [
+  {
+    slug: "trump-executive-order-both-sides",
+    category: "Federal",
+    headline: "Trump Just Signed an Order That Has Both Sides Losing Their Minds",
+    author: "Marcus Reed",
+  },
   {
     slug: "georgia-legislature-new-bill",
     category: "Gold Dome",
@@ -215,13 +301,6 @@ const MORE_STORIES: MoreStory[] = [
     category: "City Hall",
     headline: "Buckhead Cityhood Is Back -- And This Time They Have the Votes",
     author: "Denise Carter",
-  },
-  {
-    slug: "atlanta-water-bills-skyrocket",
-    category: "City Hall",
-    headline:
-      "Atlanta Water Bills Are Skyrocketing and Nobody at City Hall Will Explain Why",
-    author: "Tanya Brooks",
   },
   {
     slug: "fulton-county-da-investigation",
@@ -276,9 +355,14 @@ export default async function ArticlePage({
           <span className="text-[10px] font-bold uppercase tracking-widest text-[#DC2626]">
             {article.category}
           </span>
-          <h1 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] mt-2 mb-4">
+          <h1 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] mt-2 mb-3">
             {article.headline}
           </h1>
+          {article.subheadline && (
+            <p className="text-xl md:text-2xl font-bold text-[#DC2626] italic mb-4">
+              {article.subheadline}
+            </p>
+          )}
           <div className="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider font-medium">
             <span>By {article.author}</span>
             <span className="w-1 h-1 bg-gray-400"></span>

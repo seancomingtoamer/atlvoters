@@ -5,18 +5,30 @@ import Link from "next/link";
 // ============================================================
 
 const FEATURED_ARTICLE = {
-  slug: "trump-executive-order-both-sides",
-  category: "Federal",
+  slug: "tiffany-henyard-fulton-county-nino-brown",
+  category: "Investigations",
   headline:
-    "Trump Just Signed an Order That Has Both Sides Losing Their Minds",
+    "America's Worst Mayor Fled to Atlanta. Now She Wants Your Tax Dollars.",
+  subheadline:
+    "Meet Mayor Nino Brown -- She Ran Dolton Like New Jack City. Fulton County Is Next.",
   teaser:
-    "The latest executive action targets federal funding to cities with sanctuary policies. Atlanta stands to lose $340 million. The mayor says he won't comply. The governor says he will. Nobody's blinking.",
+    "Tiffany Henyard -- the Illinois mayor who dressed as Nino Brown at a board meeting, hired a sex offender, blew taxpayer money in Vegas, and lost reelection 88-12 -- just filed to run for Fulton County Commissioner. As a Republican. While under FBI investigation. Atlanta, she's HERE.",
   author: "Marcus Reed",
-  date: "February 12, 2026",
-  readTime: "6 min read",
+  date: "March 11, 2026",
+  readTime: "7 min read",
 };
 
 const TIER2_ARTICLES = [
+  {
+    slug: "trump-executive-order-both-sides",
+    category: "Federal",
+    headline: "Trump Just Signed an Order That Has Both Sides Losing Their Minds",
+    teaser:
+      "The latest executive action targets federal funding to cities with sanctuary policies. Atlanta stands to lose $340 million. The mayor says he won't comply. The governor says he will.",
+    author: "Marcus Reed",
+    date: "February 12, 2026",
+    commentCount: 127,
+  },
   {
     slug: "ice-spotted-gwinnett-county",
     category: "Federal",
@@ -86,12 +98,12 @@ const TRENDING_ARTICLES = [...TIER2_ARTICLES].sort(
 );
 
 const POLL = {
-  question: "Should Atlanta comply with federal sanctuary city enforcement?",
+  question: "Should Tiffany Henyard be allowed to run for office in Fulton County?",
   options: [
-    "Yes -- follow federal law or lose the funding",
-    "No -- Atlanta should protect its residents regardless",
-    "Negotiate -- find a middle ground with the feds",
-    "Don't care -- this is all political theater",
+    "Absolutely not -- we saw what she did in Illinois",
+    "Yes -- everyone deserves a second chance in a new city",
+    "Only if she settles things with the FBI first",
+    "I'm just here for the Nino Brown cosplay at board meetings",
   ],
 };
 
@@ -113,10 +125,15 @@ export default function Home() {
           </span>
         </div>
         <Link href={`/article/${FEATURED_ARTICLE.slug}`}>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] hover:text-[#DC2626] transition-colors mb-4">
+          <h2 className="text-3xl md:text-5xl font-black leading-tight text-[#111111] hover:text-[#DC2626] transition-colors mb-3">
             {FEATURED_ARTICLE.headline}
           </h2>
         </Link>
+        {FEATURED_ARTICLE.subheadline && (
+          <p className="text-xl md:text-2xl font-bold text-[#DC2626] italic mb-4">
+            {FEATURED_ARTICLE.subheadline}
+          </p>
+        )}
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mb-4">
           {FEATURED_ARTICLE.teaser}
         </p>
